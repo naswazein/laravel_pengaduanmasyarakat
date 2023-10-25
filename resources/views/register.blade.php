@@ -2,38 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- <link rel="stylesheet" href="css/home.css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login Petugas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body{
+            background-image: url("https://thumbs.dreamstime.com/b/pink-glitter-texture-abstract-background-christmas-82905940.jpg");
+        }
+    </style>
 </head>
 <body>
-<!-- @include('layouts.navbar') -->
-    <h1> Register </h1>
-    <form method='post' action={{url('register')}}> 
-        @method('POST')
+    <h1 class="text-center text-white" style="margin-top:85px">REGISTER</h1>
+    @if(session("error"))
+    <div class="alert alert-danger">{{session("error")}}</div>
+    @endif  
+    <div class="container" style="margin-top: 30px;">
+    <form method="post">
+        @method("POST")
         @csrf
-    <div>
-        NIK : <input type="text" name="nik" id="">
+  <div class="row mb-3 justify-content-center">
+    <div class="col-8">
+    <label for="nik" class="form-label">nik</label>
+    <input type="text" class="form-control" id="nik" name="nik">
     </div>
-    <div>
-        Nama : <input type="text" name="nama" id="">
+    <div class="col-8">
+    <label for="nama" class="form-label">nama</label>
+    <input type="text" class="form-control" id="nama" name="nama">
     </div>
-    <div>
-        Username : <input type="text" name="username" id="">
+    <div class="col-8">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" class="form-control" id="username" name="username">
     </div>
-    <div>
-        Password : <input type="password" name="password" id="">
+    <div class="col-8">
+    <label for="password" class="form-label">password</label>
+    <input type="password" class="form-control" id="password" name="password">
     </div>
-    <div>
-        Telp : <input type="text" name="telp" id="">
+    <div class="col-8">
+    <label for="telp" class="form-label">telp</label>
+    <input type="text" class="form-control" id="telp" name="telp">
     </div>
-    <div class="d-grid gap-2 col-4 mx-auto">
-        <br>
-      <button class="btn btn-primary" type="submit">Send</button>
-      <input type="submit" name="submit" 
-      <br>
-            <p>have an account? <a href=login>login</a></p>
-    </div>
+</div>
+<center>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</center>
 </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

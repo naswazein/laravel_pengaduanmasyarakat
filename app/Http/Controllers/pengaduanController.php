@@ -34,7 +34,7 @@ class pengaduanController extends Controller
     }
     function tampilpengaduan(){
         $judul = "";
-    // $pengaduan = DB::table('pengaduan')->get();
+    $pengaduan = DB::table('pengaduan')->get();
  
 
     return view('tampilpengaduan', ['judul' => $judul, 'pengaduan' => $pengaduan]);

@@ -9,7 +9,6 @@ use App\http\Controllers\AuthControll;
 use App\http\Controllers\loginController;
 use App\http\Controllers\loginpetugasController;
 
-// Route::middleware(['auth'])->group(function(){})
 
 Route::get('/tampilpengaduan', [pengaduanController::class, 'tampilpengaduan']);
  Route::post('/isipengaduan', [pengaduanController::class, 'proses_pengaduan']); 
@@ -40,11 +39,22 @@ Route::post('/register', [AuthControll::class, 'store']);
 Route::get('/login', [loginController::class, 'login']); 
 Route::post('/login', [loginController::class, 'proseslogin']);
 
-//login petugas
+// login petugas
 Route::get('/petugas/login', [loginpetugasController::class, 'index']); 
-Route::post('/login', [loginController::class, 'proseslogin']);
+Route::post('/petugas/login', [loginpetugasController::class, 'login']);
 
+Route::middleware(['cekpetugas'])->group(function(){
+//login petugas
+Route::get('/petugas/home', [petugasController::class, 'home']);
+//logout
+Route::get('/petugas/logout', [loginpetugasController::class, 'logout']); 
+});
 
+//logout masyrakat
+Route::get('/logout', [loginpetugasController::class, 'logout']); 
+
+//logout
+Route::get('/petugas/logout', [petugascontroller::class, 'logout']); 
 
 
 Route::get('/',    function () {
@@ -52,6 +62,7 @@ Route::get('/',    function () {
 });
 
 Route::get('/home', [pengaduanController::class, 'index']);
+
 
 Route::get('masyarakat', [masyarakatController::class, 'masyarakat']);
 

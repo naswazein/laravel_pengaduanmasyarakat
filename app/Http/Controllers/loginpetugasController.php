@@ -7,21 +7,22 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-class loginController extends Controller
+class loginpetugasController extends Controller
 {
-    function login(){
-        $login = "login";
-        return view("/login" , ['login'=>$login]);
+    public function index(){
+        // return Hash::make ("123"); 
+        return view('/loginpetugas');
     }
-    function proseslogin(Request $request){
-    $datalogin = $request->only("username" , "password"); //buat ambil data
-    if (Auth::attempt($datalogin)){ //proses login
-        // return "berhasil";
-       return redirect('/home');
-    }else{
-        // return "gagal";
-        return redirect('/login')->with("error", "username atau password salah");
+    public function login(Request $request){
 
+         $data = $request->only('username' , 'password');
+         if (Auth::guard("petugas")->attempt($data)){
+         return redirect("/petugas/home");
+         }else{
+         return redirect("/petugas/login");
+         }
     }
+    public function home(){
+        return "ini home";
     }
 }
