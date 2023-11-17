@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +7,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <!-- @foreach($pengaduan as $pengaduan)
-    <p>{{$pengaduan->nik}} - {{ $pengaduan->isi_laporan}}</p>
-  @endforeach  -->
+@include('layouts.navP')
 
-    @include('layouts.navbar')
-    
  <div class="container">
     <div class="mb-3">
         <div class="page">
@@ -26,13 +21,13 @@
             <br>
             <br>
            <center> <h1 style="text-align-center;">Selamat datang</h1>
-            <h3 style="text-align-center;">Laporan Pengaduan Masyarakat</h3>
-            <p style="text-align-center;">Sampaikan laporan anda langsung kepada instansi pemerintah yang berwenang</p>
-   </center>
+            <h3 style="text-align-center;">Petugas</h3>
+            <!-- <p style="text-align-center;">Sampaikan laporan anda langsung kepada instansi pemerintah yang berwenang</p> -->
+   <!-- </center>
     <br>
     <center>
-        <td><a href="{{url('isipengaduan')}}">Silahkan Lapor</a>
-     <center>
+        <td><a href="{{url('isipetugas')}}">Silahkan Lapor</a>
+     <center> -->
     
 </div>
 </div>

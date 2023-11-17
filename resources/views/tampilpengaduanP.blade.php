@@ -6,17 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/home.css">
-    <style>
-        body{
-            background-image: url("https://thumbs.dreamstime.com/b/pink-glitter-texture-abstract-background-christmas-82905940.jpg");
-        }
-    </style>
       <title>Document</title>
 </head>
 
 <body>
   <h1>{{$judul}}</h1>
-  @include('layouts.navbar')
+  @include('layouts.navP')
   <div class="container">
     <table class="table">
       <thead>
@@ -32,6 +27,7 @@
        @foreach($pengaduan as $data)
         <tbody>
           <td scope="row">
+          <td<>     
             <?= $data->id_pengaduan ?>
           </td>
           <td>
@@ -45,10 +41,10 @@
               <?php echo $data->status; ?>
             </button></td>
           <td>
-            <a href={{url("/hapus-pengaduan/$data->id_pengaduan")}}>Delete</a>  
-            <a href={{url("/detail-pengaduan/$data->id_pengaduan")}}">Detail</a>
-            <a href={{url("/update/$data->id_pengaduan")}}">Update</a>   
-
+          <a type="button"class="btn btn-danger" href={{url("/hapus-pengaduan/$data->id_pengaduan")}}>Delete</a>
+          <a type="button"class="btn btn-primary" href={{url("petugas/detailpengaduanP/$data->id_pengaduan")}}>Detail</a>
+          <a type="button"class="btn btn-success" href={{url("petugas/update/$data->id_pengaduan")}}>Update</a>
+          <a type="button"class="btn btn-warning" href={{url("/tanggapan petugas/$data->id_pengaduan")}}>Tanggapan</a>
                 </td    
             </form>
           </td>

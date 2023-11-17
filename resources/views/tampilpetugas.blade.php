@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,23 +10,25 @@
 </head>
 
 <body>
-  @include('layouts.navbar')
+  @include('layouts.navP')
   <div class="container">
+  <center> <h1>Data Petugas</h1> </center>
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Id Petugas</th>
+          <th scope="col">Id</th>
           <th scope="col">Nama Petugas</th>
           <th scope="col">Username</th>
           <th scope="col">Password</th>
           <th scope="col">Telp</th>
           <th scope="col">Level</th>
+          <th scope="col">Opsi</th>
         </tr>
       </thead>
-      @foreach($petugas as $data)
+       @foreach($petugas as $data)
         <tbody>
           <td scope="row">
-            <?= $data->id_petugas ?>
+            <?= $data->id?>
           </td>
           <td>
             <?= $data->nama_petugas?>
@@ -43,11 +45,11 @@
           <td>
             <?= $data->level?>
           </td>
-          <td style="vertical-align:middle">
-            <form action="proses_hapus.php?id_petugas=<?= $data->id_petugas?>" method="post">
-              <button type="submit" class="btn btn-danger">
-                DELETE
-              </button>
+          <td>
+          <a type="button"class="btn btn-danger" href={{url("/hapus-petugas/$data->id")}}>Delete</a> 
+          <a type="button"class="btn btn-primary" href={{url("/detail-petuagas/$data->id")}}>Detail</a> 
+          <a type="button"class="btn btn-success"href={{url("/update/$data->id")}}>Update</buttaon> 
+          </td    
             </form>
           </td>
         </tbody>
@@ -56,4 +58,4 @@
   </div>
 </body>
 
-</html>
+</html> -->

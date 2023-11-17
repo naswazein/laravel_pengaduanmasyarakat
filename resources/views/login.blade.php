@@ -9,20 +9,22 @@
         body{
             background-image: url("https://thumbs.dreamstime.com/b/pink-glitter-texture-abstract-background-christmas-82905940.jpg");
         }
-    </style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
+        </style>
 </head>
 <body>
-    <h1 class="text-center" style="margin-top:85px">LOGIN</h1>
+    <h1 class="text-center  " style="margin-top:85px">LOGIN</h1>
     @if(session("error"))
     <div class="alert alert-danger">{{session("error")}}</div>
     @endif  
     <div class="container" style="margin-top: 60px;">
-    <form method="post">
+    <form class="post form-container" action={{url("/login")}} method="POST" >
         @method("POST")
         @csrf
+      
   <div class="row mb-3 justify-content-center">
     <div class="col-5">
-    <label for="username" class="form-label">Username</label>
+    <label for="username" class="form-label ">Username</label>
     <input type="text" class="form-control" id="username" name="username">
     </div>
 </div>

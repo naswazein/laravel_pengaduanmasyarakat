@@ -17,9 +17,9 @@ class loginpetugasController extends Controller
 
          $data = $request->only('username' , 'password');
          if (Auth::guard("petugas")->attempt($data)){
-         return redirect("/petugas/home");
+         return redirect("petugas/home");
          }else{
-         return redirect("/petugas/login");
+         return redirect("petugas/login");
          }
     }
     public function home(){

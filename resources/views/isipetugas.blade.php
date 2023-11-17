@@ -10,7 +10,8 @@
 </head>
 
 <body>
-    @include('layouts.navbar')
+
+    @include('petugas.navbarpetugas')
   <form action="isipetugas" method="POST" enctype="multipart/form-data">
     @method('POST')
     @csrf

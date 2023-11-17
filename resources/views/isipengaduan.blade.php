@@ -7,6 +7,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
   <title>Document</title>
   <link rel="stylesheet" href="css/home.css">
+  <style>
+        body{
+            background-image: url("https://thumbs.dreamstime.com/b/pink-glitter-texture-abstract-background-christmas-82905940.jpg");
+        }
+    </style>
 </head>
 
 <body>
@@ -27,7 +32,8 @@
     </div>
    
     <div class="d-grid gap-2 col-4 mx-auto">
-      <button class="btn btn-primary" type="submit">Send</button>
+      <br>
+    <button class="btn btn-light" type="submit">Send</button>
     </div>
   </form>
 </body>

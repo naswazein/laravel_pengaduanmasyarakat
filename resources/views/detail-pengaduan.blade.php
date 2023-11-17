@@ -10,8 +10,6 @@
 </head>
 
 <body>
-    
-
     <div class="container">
         <center><h1>detail pengaduan</h1></center>
     <table  style="margin-top: 2rem;" class="table">
@@ -34,10 +32,17 @@
             <td class="table-secondary">{{$pengaduan->isi_laporan}}</td>
             <td class="table-secondary">{{$pengaduan->foto}}</td>
             <td class="table-secondary">{{$pengaduan->status}}</td>
-
           </tr>
         </tbody>
       </table>
     </div>
+    <h2> Tanggapan </h2>
+      <div class="media border p-3">
+      @foreach($tanggapan as $tanggapan)
+      <div class="media-body">
+        <h4>petugas<small>|<i>{{$tanggapan->nama_petugas}}</i></small></h4>
+        <p>{{$tanggapan->tanggapan}}</p>
+        @endforeach
+      </div>
 </body>
 </html>

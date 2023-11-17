@@ -10,26 +10,30 @@
 </head>
 
 <body>
-  <form action={{url("update/$pengaduan->id_pengaduan")}} method="POST" enctype="multipart/form-data">
+  <form action={{url("/petugas/update/$pengaduan->id_pengaduan")}} method="POST" enctype="multipart/form-data">
     @method('POST')
     @csrf
     <div class="container">
       <br>
       <br>
       <center>
-      <td><h2>Selamat Datang Di update Pengaduan</h2></td>
+      <td><h2>update Petugas</h2></td>
 </center>
       <div class="mb-3">
-        <label for="formFile" class="form-label">Bukti Foto</label>
-        <input class="form-control" type="file" id="formFile" name="foto">
       </div>
       <label for="exampleFormControlTextarea1" class="form-label">Isi Laporan</label>
       <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="isi_laporan" required>{{$pengaduan->isi_laporan}}</textarea>
       @error('isi_laporan')
       <div>{{ $message }}</div>
           @enderror
-    </div>
-   
+          <br>
+          <select class="form-select" aria-label="Default select example" name="status">
+  <option selected>Open this select menu</option>
+  <option value="0">0</option>
+  <option value="proses">Proses</option>
+  <option value="selesai">Selesai</option>
+</select>
+          <br>
     <div class="d-grid gap-2 col-4 mx-auto">
       <button class="btn btn-primary" type="submit">Send</button>
     </div>

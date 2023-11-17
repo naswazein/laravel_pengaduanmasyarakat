@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\pengaduan;
-
+use Illuminate\Support\Facades\Auth;
 
 class pengaduanController extends Controller
 {
@@ -34,7 +34,7 @@ class pengaduanController extends Controller
     }
     function tampilpengaduan(){
         $judul = "";
-    $pengaduan = DB::table('pengaduan')->get();
+    $pengaduan = DB::table('pengaduan')->where("nik", Auth::user()->nik)->get();
  
 
     return view('tampilpengaduan', ['judul' => $judul, 'pengaduan' => $pengaduan]);
@@ -46,11 +46,11 @@ class pengaduanController extends Controller
     function proses_pengaduan(Request $request )
     {
          //validasi
-         $nama_foto = $request->foto->getClientOriginalName();
-
-        $request->validate([
-            'isilaporan' => 'required|min:2'
-        ]);
+         
+         $request->validate([
+             'isilaporan' => 'required|min:2'
+            ]);
+            $nama_foto = $request->foto->getClientOriginalName();
 
         $request->foto->storeAs('public/image' , $nama_foto);
 
@@ -59,7 +59,7 @@ class pengaduanController extends Controller
     
         DB::table('pengaduan')->insert([
             'tgl_pengaduan' => date('y-m-d'),
-            'nik' => '01',
+            'nik' => Auth::user()->nik,
             'isi_laporan' => $isipengaduan,
             'foto' => $request->foto->getClientOriginalName(), 
             'status' => '0'
@@ -93,13 +93,13 @@ class pengaduanController extends Controller
         //       ->update(['isi_laporan' => "isi laporan di update"]);
         function update_pengaduan($id)
         {
-            $pengaduan = DB::table('pengaduan')->where('id_pengaduan' , $id)->first();
+             $pengaduan = DB::table('pengaduan')->where('id_pengaduan' , $id)->first();
             return view('update' , ['pengaduan' => $pengaduan]);
         }
         
         function proses_update_pengaduan(Request $request, $id){
 
-            // return;+
+            // return;
             $isi_laporan = $request->isi_laporan;
 
             DB::table('pengaduan')
