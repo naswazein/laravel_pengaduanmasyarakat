@@ -100,8 +100,7 @@ Route::get('petugas/tampilpetugas', [petugasController::class, 'tampilpetugas'])
 Route::get('/hapus-petugas/{id}', [petugasController::class, 'hapus']);
 Route::get('/about/{id}', [pengaduanController::class, 'tampilabout']);
 
-Route::get('petugas/tampilpengaduan', [petugasController::class, 'tampilpengaduan'])->middleware('auth');
-
+Route::get('petugas/tampilpengaduan', [petugasController::class, 'tampilpengaduan']);
 Route::get('/', function () {
     return view('welcome');
 });
